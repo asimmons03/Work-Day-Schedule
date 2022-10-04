@@ -1,9 +1,9 @@
-// Display today's day and date
-var todayDate = moment().format('dddd, MMM Do YYYY');
+// Displays the currrent date and time
+var todayDate = moment().format('dddd, MMM Do YYYY, hh:mm:ss a');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
-    // saveBtn click listener 
+    // saveBtn functionality 
     $(".saveBtn").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
@@ -14,14 +14,14 @@ $(document).ready(function () {
     })
    
     function timeTracker() {
-        //get current number of hours.
+        //tracks current time for schedule
         var timeNow = moment().hour();
 
-        // loop over time blocks
+        // loop for the time blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-            // To check the time and add the classes for background indicators
+            // Checks the time and makes the background indicators for the text box display
             if (blockTime < timeNow) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
@@ -41,7 +41,7 @@ $(document).ready(function () {
         })
     }
 
-    // Get item from local storage if any
+    // Keeps item in local storage
     $("#hour7 .description").val(localStorage.getItem("hour7"));
     $("#hour8 .description").val(localStorage.getItem("hour8"));
     $("#hour9 .description").val(localStorage.getItem("hour9"));
@@ -56,3 +56,4 @@ $(document).ready(function () {
 
     timeTracker();
 })
+
