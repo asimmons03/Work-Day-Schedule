@@ -5,7 +5,7 @@ $("#currentDay").html(todayDate);
 $(document).ready(function () {
     // saveBtn functionality 
     $(".saveBtn").on("click", function () {
-        // Get nearby values of the description in JQuery
+        // Using values from JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
